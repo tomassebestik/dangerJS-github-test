@@ -1,8 +1,9 @@
 name: DangerJS Pull Request review
 
 on:
-  - pull_request
-  - workflow_dispatch
+  pull_request:
+    types: [opened, edited, reopened]
+  workflow_dispatch:
 
 jobs:
   danger-check:
