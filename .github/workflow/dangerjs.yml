@@ -1,0 +1,30 @@
+name: DangerJS Pull Request review
+
+on:
+  - pull_request
+  - workflow_dispatch
+
+jobs:
+  danger-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.15'
+
+    - name: Change working directory
+      run: cd .github/dangerjs
+
+    - name: Install dependencies
+      run: npm install --silent --no-progress > /dev/null
+
+    - name: Transpile Dangerfile TS to JS
+      run: npx tsc && cd dist
+
+    - name: Run DangerJS
+      run: npx danger ci --failOnErrors -v
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
