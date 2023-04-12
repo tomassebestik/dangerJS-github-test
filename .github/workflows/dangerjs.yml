@@ -3,10 +3,12 @@ name: DangerJS Pull Request review
 on:
   pull_request:
     types: [opened, edited, reopened, synchronize]
+    branches:
+      - '*'
   workflow_dispatch:
   push:
     branches:
-      - !master
+      - '*'
 
 permissions:
   actions: read
