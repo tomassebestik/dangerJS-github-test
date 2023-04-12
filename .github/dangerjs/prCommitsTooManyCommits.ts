@@ -8,7 +8,7 @@ declare const danger: any;
 declare const message: any;
 
 export default function (): void {
-	const tooManyCommitThreshold = 2; // above this number of commits, squash commits is suggested
+	const tooManyCommitThreshold: number = 2; // above this number of commits, squash commits is suggested
 	const prCommits: number = danger.github.commits.length;
 
 	if (prCommits > tooManyCommitThreshold) {

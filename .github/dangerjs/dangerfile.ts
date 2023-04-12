@@ -3,9 +3,11 @@ declare const message: any;
 declare const markdown: any;
 
 import prCommitsTooManyCommits from './prCommitsTooManyCommits';
+import prDescription from './prDescription';
 
 async function runDangerRules() {
 	prCommitsTooManyCommits();
+	prDescription();
 
 	// Add success log if no issues
 	const dangerFails: number = results.fails.length;
