@@ -4,10 +4,12 @@ declare const markdown: any;
 
 import prCommitsTooManyCommits from './prCommitsTooManyCommits';
 import prDescription from './prDescription';
+import prTargetBranch from './prTargetBranch';
 
 async function runDangerRules() {
 	prCommitsTooManyCommits();
 	prDescription();
+	prTargetBranch();
 
 	// Add success log if no issues
 	const dangerFails: number = results.fails.length;

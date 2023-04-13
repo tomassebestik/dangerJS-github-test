@@ -35,12 +35,6 @@ jobs:
         cache: npm
         cache-dependency-path: .github/dangerjs/package-lock.json
 
-    - name: Get Node version
-      run: node --version
-
-    - name: Get NPM version
-      run: npm --version
-
     - name: Install DangerJS dependencies
       run: npm install
 
