@@ -38,11 +38,7 @@ jobs:
     - name: Install DangerJS dependencies
       run: npm install
 
-    # - name: Transpile Dangerfile TS to JS
-    #   run: npx tsc
-
     - name: Run DangerJS
       run: npx danger ci --failOnErrors -v
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # working-directory: .github/dangerjs/dist
