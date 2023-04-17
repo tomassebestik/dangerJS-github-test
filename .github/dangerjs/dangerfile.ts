@@ -5,8 +5,12 @@ declare const markdown: any;
 import prCommitsTooManyCommits from './prCommitsTooManyCommits';
 import prDescription from './prDescription';
 import prTargetBranch from './prTargetBranch';
+import prFirstTimeContributor from './prFirstTimeContributor';
+import prExplainMergeProcess from './prExplainMergeProcess';
 
 async function runDangerRules() {
+	await prFirstTimeContributor();
+	prExplainMergeProcess();
 	prCommitsTooManyCommits();
 	prDescription();
 	prTargetBranch();
